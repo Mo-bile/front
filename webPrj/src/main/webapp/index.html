@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script>
+		var  x;
+		//alert(x == undefined); //x 정의 되지않으면 이렇게 나옴
+	
+		var nums = new Array();
+		
+		nums[0] = 5;
+		nums[1] = 1;
+		nums[2] = 21;
+		
+		console.log(nums[0]);
+		console.log(nums[1]);
+		console.log(nums);
+		
+		var nums2 = new Array();
+		nums2[3] = 5;
+		console.log(nums2);
+		console.log(nums2.length);
+		
+	//	var nums3 = new Array(); //초기화 
+	//	var nums3 = new Array(5); //5개
+	//	var nums3 = new Array(5,10,21); //각 3개의 값 생성
+		var nums3 = new Array(5,10,21, 'hello'); //문자열도
+		
+		console.log(typeof nums3[3]);
+		
+		
+		//스택
+		var nums4 = new Array();
+		nums4.push(4);
+		console.log(nums4);
+		
+		var n1 = nums4.pop();
+		console.log(nums4);
+		
+		//큐
+		var nums5 = new Array();
+		nums5.push(6);
+		console.log(nums5);
+		
+		var num = nums5.shift();
+		console.log(nums5);
+		
+		//디큐
+		var nums6 = new Array(1,2,3,4,5);
+		console.log(nums6);
+		
+		nums6.push(6);
+		console.log(nums6);
+		var pos = nums6.pop();
+		console.log(nums6);
+		
+		var num = nums6.shift();
+		console.log(nums6);
+		nums6.unshift();
+		console.log(nums6);
+	
+		//접착
+		var nums7 = new Array(1,2,3,4,5);
+		//nums7.splice(2); //인덱스 2분부터 뒤에 전부다 
+//		nums7.splice(2 ,1); //특정 인덱스 한글자만 지울 때 
+//		nums7.splice(2 ,2); //두글자 지울 때 
+		
+//		nums7.splice(1 ,0 , 23); //두글자 지울 때 
+
+//		nums7.splice(1,0,23,100,124); //인덱스 1번쨰에 삭제 0없이 23,100,124 넣기
+		nums7.splice(1 ,2 , 23); //인덱스 1번째에 2개 삭제하고 23 대입
+		console.log(nums7);
+		
+		
+		var exam = new Object(); //expand Object
+		exam.kor = 30;
+		exam.eng = 70;
+		exam.math = 80;
+		
+		alert(exam.kor + exam.eng);
+		
+		
+		// 변수명 자유롭게
+		var exam2 = new Object();
+		exam.kor = 20;
+		alert(exam["kor"] = 50);
+		
+		alert(exam["ko-r"] = 60);
+		
+		
+		//객체의 속성 제거하기
+		var exam3 = new Object();
+		exam3.kor = 30;
+		console.log(exam3);
+		delete exam3.kor;
+		console.log(exam3);
+		
+		//파싱
+		var exam4 = "[3,5,3,2]";
+		alert(exam4[2]);
+		
+		var exam4 = eval("([3,5,3,2])");
+		alert(exam4[2]);
+		
+		eval("var x = 3+5");
+		alert(x);
+		
+		var data = JSON.parse("[3,5,3,2]");
+		alert(data);
+		
+		var str1 = "hello";
+//		var str2 = "hello";
+		var str2 = new String("hello"); //JS는 모든게 객체
+		console.log(str1 == str2); 
+		//그래서 자바와 달리 true임
+		//자바는 객체 VS 참조비교이다. 자바는 equal로 한다.
+		//JS는 ==이다 (값비교용)
+		
+		//그렇다면 ===는 객체 까지 비교이다.
+		
+		console.log(str1 === str2); 
+		
+		
+//		if('cat' || 'dog')
+		console.log('cat' || 'dog'); 
+		
+		var result = null || 0 || undefined || '' || ' ' 
+		console.log(result)
+		
+		
+		//기본값 입력에 따라 달리 하는법
+
+		var x = null;
+		var name = x || "newlec"; 
+		//만약 null이 왔다면, 뒤쪽의 기본값이 있기를 원해
+		
+		console.log(name);
+		
+		//nullish
+		var foo = null ?? 'default String';
+		console.log(foo);
+		
+		var baz = 0 ?? 42;
+		console.log(baz);
+		
+		//숫자 산술연산
+		var x = 3;
+		var y = '3';
+		console.log(x + y); //문자로 나옴
+		console.log(x * y); //곱셈의 경우 문자가 숫자로 바뀐다
+		
+		var x = 3;
+		var y = 'a';
+		console.log(x * y); //Nan
+		
+		if(NaN === x * y )
+			console.log("오류오류")
+		
+		isNaN(x * y)
+			console.log("오류오류")
+		
+			
+			
+		var ar = ["철수", "영희", "맹구", "동천"];
+			
+		for(i in ar)
+			alert(i);
+		
+		for(v of ar)
+			alert(v);
+		
+		
+		 
+		 /* 
+		var record = {kor:30 , eng:40 , math:50};
+		for(var k in record)
+			alert(k);
+		for(var k in record)
+			alert(record[k]);
+		
+		for(var v of record) //이거는 안나오는게 정상임
+			alert(v); //이터레이터가 포함되어서 안되는게 정상임
+		 */
+	</script>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<h1>인사말을 몇번 듣고 싶으세요?</h1>
+		<ul>
+		<!--아래와 같이 입력 쿼리를 조절하고
+		출력문에 클릭할수 있게끔 하였다.  -->
+			<li><a href="/hello?c=5">5번</a></li>
+			<li><a href="/hello?c=10">10번</a></li>
+			<li><a href="/hello?c=100">100번</a></li>
+		</ul>
+		
+		<!--양식지를 만들 수있다.  -->
+		<form action="/hello">
+			<label>기타</label>
+			<input name = "c" placeholder="원하는 횟수 입력하시오">
+			<!-- c는 위에서 그 값을 받아오는 것이다. -->
+			
+			<input type="submit" value = "전송">
+				
+		</form>
+		
+	</section>
+	 
+	<!--href는 입력이고   -->
+	<!-- /hllo 는 출력이다.  -->
+	
+</body>
+</html>
