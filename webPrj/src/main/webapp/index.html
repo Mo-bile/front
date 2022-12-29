@@ -3,6 +3,7 @@
 <head>
 
 	<script>
+		/* 
 		var  x;
 		//alert(x == undefined); //x 정의 되지않으면 이렇게 나옴
 	
@@ -180,7 +181,305 @@
 		
 		for(var v of record) //이거는 안나오는게 정상임
 			alert(v); //이터레이터가 포함되어서 안되는게 정상임
-		 */
+		 */ 
+
+
+//--------------------------------------수요일-----------------------------------------------
+
+/*
+		 
+		 var add = new Function("x,y", "return x+y;");
+		 console.log(add(3,4));
+		 console.log("문제구분");
+		 
+		 
+		 var add = function(x,y){
+			 	return x + y;
+		 }
+		 console.log(add(3,4));
+		 console.log("문제구분");
+		 
+		 function add2(  x,  y){
+
+			  return x+y+ arguments[2] + arguments[3];
+
+			}
+		 console.log(add2(3,4,5,6));
+		 console.log("문제구분");
+		 
+		 function add(){
+			 
+			 return arguments[0] + arguments[1];
+		 }
+		 
+		 console.log(add(4,5));
+		 console.log("문제구분");
+*/
+
+		/*  
+		 alert(a); //undefined
+	 		var a = 1; 
+		*/
+	 		
+	 /* 
+		 alert(b); //not defined
+		 b = 1; //var 이 X
+ 	  */
+ 	  /*
+		 alert(window.c); //undefined : 스택에 쌓여있는 경우 X
+		 window.c = 5; 
+		 
+		 window.d = 7;
+		 alert(d)
+
+		 c = 1;
+		alert(window.c);
+		 		 
+			 
+		 var f1 = function(){
+			 d = 1; //함수안에서도 전역변수 사용이 가능핟.
+			 console.log(window.d);
+		 }
+		 
+		 f1();
+		  */
+		  
+		 
+		  /*
+		  var f1 = function(){
+			  
+			  x = 1;
+			  var x;
+			  console.log(window.x);
+			  
+			  
+		  }
+		  f1();
+		  
+		  
+	 		var f2 = function(){			  
+			  y = 1;
+			  
+			  console.log(window.y);
+			  
+			  var y;
+		  }
+		  f2();
+		  
+		  alert(a);
+		  {
+			  var a = 1;
+			  
+		  }
+		  
+		  
+		  function f1(){
+			  var a = 1;
+		  }
+		  
+		  function f2(){
+			  var a = 1;
+		  }
+		  */
+		  
+/*
+		  
+		  function f1(){
+				var w = 10;
+				/* 이 경우 f2만 만들어지고 함수는 존재하지 않음 
+				그래서 위치를 f2()호출 보다 위로 올라가야한다.
+				var f2 = function (){
+					var w = 20;
+					console.log("f2",w);
+				}
+					f2();
+
+				console.log("f1", w);
+  		}
+  		f1();
+
+			*/	
+
+
+	/**	  
+		  var f3;
+		  function f1(){
+			  var w = 10;
+			  
+			  var f2 = function (){
+				  w++
+			  }
+			  f2();
+			  
+			  f3 = f2; 
+			  console.log("f2", w);
+		  }
+		  
+		  f1();
+		  f1();
+
+		 
+		  var funcs = [];
+		  /* 
+		  funcs[0] = function(){
+			  console.log(0);
+		  }
+		  funcs[1] = function(){
+			  console.log(1);
+		  }
+		  funcs[2] = function(){
+			  console.log(2);
+		  }
+		   */
+		  
+		   /*
+		  for(var i = 0 ; i < 3 ; i++)
+			  funcs[i] = function(){ //a
+			  console.log(i); //i
+		  }
+		  
+		  /* 
+		  funcs[0]();
+		  funcs[1]();
+		  funcs[2]();
+		   
+		   */
+
+		   /*
+		  for(var a = 0 ; a < 3 ; a++){
+			  funcs[a]();
+			  
+			  
+		  }
+		  
+		  
+		  for (i in funcs){
+			  funcs[i]();
+			  
+		  }
+		  */
+		   
+
+
+
+		// ar.papa();
+
+		var name =new String("newlec");
+		name.kor = 20;
+		console.log(name.kor);
+
+
+		    // ------- 4. JS 클래스의 Expand 기능 지원 X 
+        var name = new String("newlec");
+        name.kor = 20;
+        console.log(name.kor);     //에러가 발생한다.
+
+        // 확장을 가능하게 할 것인지 말건지 할 수 있다.
+
+        // 자바스크립트에서는 Wrapper 클래스가 기본형이라서,
+		// Primitive 클래스(자바스크립트에서는 Wrraper클래스가
+		// Primitive 클래스이다.)는 Expand가 지원하지 않는다.
+
+
+		  
+		 
+	</script>
+
+	<script>
+		function Exam(){
+			kor = 30;
+		}
+
+
+        var ar = [5];
+        ar.Mo = function(){
+            console.log(ar);
+        }
+        ar.Mo();
+
+		var ar = [10];
+        ar.papa = function(){
+            console.log(ar);
+        }
+        ar.papa();
+
+
+        // ------- 5-1. 객체 사용법(new의 의미)   
+        function Exam(){
+            kor = 30;
+        }
+
+        var exam1 = Exam();
+		// 이것은 함수를 호출하기만 하는 것이고 return이 없어서 받을 수는 없다.
+        
+        console.log(exam1);
+        // console.log(exam1.kor);
+
+        // ------- 5-2. 객체 사용법(new의 의미)   
+
+        function Exam(){
+            kor = 30;
+        }
+
+        var exam2 = new Exam(); 
+		// new로 함수를 호출하는 것이 아니라 객체를 만들줘서 값을 참조해주면, 값을 출력할 수 있다?
+        // 앞에 new를 쓰면, 객체를 만드는게 이것을 함수가 먹어서 함수 내에서 사용할 수 있고 속성을 추가할 수 있다.(사용자가 임의로 바꿀수 있고 생성자를 의미한다.)
+         // 즉, 데이터 초기화하려고 대문자 로 사용한다.
+        console.log(exam2);
+        console.log(exam2.kor); 
+
+
+/**
+		//함수 호출은 2가지 방법이 있다.
+		
+		var exam1 = new Exam();
+		console.log(exam1.kor); //undefined
+		
+		var exam2 = Exam();
+		console.log(exam2.kor); //type error
+
+		//new 에 따라서 달라진다. new는 객체를 만드는 역할을 한다.
+		//만드는것을 함수가 낼름 먹어서 그 객체를 함수내에서 이용한다.
+
+		//new를 쓰면 생성자 역할을 한다. 
+		
+		//일부로 함수의 이름을 대문자로 했다
+**/
+
+
+		function Exam(){
+			this.kor = 30;
+			console.log(this.kor);
+			console.log(window.kor); //그냥 하면 오류 뜸 꼭 this 써야함
+			//window 하면은 new 함수 호출 시 new에 따라서 다르게 볼 수 있음
+
+		}
+
+		new Exam();
+		Exam();
+		//둘다 호출이 되고 30이 나온다
+		//this 는 자기가 사용할 수이는 기본객체이다.
+		//this 는 window가 될수도 있긴하다.
+	
+
+	/**
+		function Exam(){
+			this.kor = 30;
+			this.eng = 20;
+			this.math = 40;
+
+			this.total = function(){
+				return this.kor + this.eng + this.math;
+			}
+		}
+
+		var exam = new Exam();
+		console.log(exam.total());
+
+		var exam1 = new Exam();
+		console.log(exam1.total());
+
+**/
 	</script>
 
 <meta charset="UTF-8">
